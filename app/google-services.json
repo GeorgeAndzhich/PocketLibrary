@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "461288576215",
+    "project_id": "fir-appy-f6cdb",
+    "storage_bucket": "fir-appy-f6cdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461288576215:android:b97745b814ce9e246ccc92",
+        "android_client_info": {
+          "package_name": "com.example.pocketlibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461288576215-ff8s3fdbefavce8g60daaekhte67ggqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOVUGx5iuxDqTjFqiPB4JxkMw1X843PnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461288576215-ff8s3fdbefavce8g60daaekhte67ggqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
