@@ -20,14 +20,14 @@ class MainActivity : AppCompatActivity() {
 
         var bookName = findViewById<EditText>(R.id.editTextTextPersonName)
         var author  = findViewById<EditText>(R.id.editTextTextPersonName2)
-        var comment = findViewById<TextInputLayout>(R.id.TextInput)
+        var comment = findViewById<EditText>(R.id.editTextTextMultiLine)
         var actionButton = findViewById<Button>(R.id.button2)
         var checkText = findViewById<TextView>(R.id.textView)
 
         var db = Database()
 
         actionButton.setOnClickListener {
-            var book = Book(bookName.text.toString(),author.text.toString(),comment.toString())
+            var book = Book(bookName.text.toString(),author.text.toString(),comment.text.toString())
             db.Add(book)
         }
 
