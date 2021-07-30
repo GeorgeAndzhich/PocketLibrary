@@ -2,6 +2,7 @@ package com.example.pocketlibrary
 
 import android.content.Context
 import android.widget.Toast
+import com.google.android.gms.tasks.Task
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.security.AccessControlContext
@@ -21,4 +22,9 @@ class Database {
             Toast.makeText(context,"Book not found",Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun update(key:String,map: HashMap<String,String>): Task<Void> {
+        return reference.child(key).updateChildren(map as Map<String, Any>)
+    }
+
 }
