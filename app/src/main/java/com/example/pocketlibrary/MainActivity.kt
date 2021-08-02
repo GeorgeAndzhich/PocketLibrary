@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         var comment = findViewById<EditText>(R.id.editTextTextMultiLine)
         var actionButton = findViewById<Button>(R.id.button2)
         var checkText = findViewById<TextView>(R.id.textView)
-        var readButton = findViewById<Button>(R.id.button3)
+        var readButton = findViewById<Button>(R.id.button7)
 
         var db = Database()
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             db.Add(book)
         }
         readButton.setOnClickListener{
-         Intent(this,Read::class.java).also{ startActivity(intent) }
+            Intent(this,Read::class.java).also { startActivity(it) }
         }
 
     }
