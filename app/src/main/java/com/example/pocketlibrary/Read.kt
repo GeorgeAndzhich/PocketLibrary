@@ -2,9 +2,14 @@ package com.example.pocketlibrary
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.getValue
 
 class Read : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +23,21 @@ class Read : AppCompatActivity() {
         val comment = findViewById<TextView>(R.id.textView8)
         var button = findViewById<Button>(R.id.button4)
 
+        val db = Database()
+        button.setOnClickListener {
+            db.reference.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                        val searchData = Search.text.toString()
+                        val value = snapshot.child("Books").child("name").getValue()
 
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+        }
     }
-
 }
