@@ -19,30 +19,24 @@ class Read : AppCompatActivity() {
 
         // Declaring elements
         val Search = findViewById<EditText>(R.id.editTextTextPersonName3)
-        val name = findViewById<TextView>(R.id.textView6)
-        val author = findViewById<TextView>(R.id.textView7)
-        val comment = findViewById<TextView>(R.id.textView8)
         var button = findViewById<Button>(R.id.button4)
         var test = findViewById<TextView>(R.id.textView2)
 
-        val db = Database()
-        button.setOnClickListener {
-            db.reference.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val searchData = Search.text.toString()
-                    snapshot.children.forEach {
-                       test.text=it.child("name").getValue<Book>().toString()
+        val db  = Database()
+
+        button.setOnClickListener{
+           var queried:String = test.text.toString()
+            if (queried.isNotEmpty())
+            {
+                db.reference.child(queried).get().addOnSucessListener{
+                    if (it.exists()){
+                        val bookTitle = it.child("title").value
+                        test.text = bookTitle.toString()
                     }
-
+                 }.addOnFailureListener{
+                     Toast.makeText(this,"Book not found",Toast.LENGTH_SHORT).show()
                 }
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
                 }
-            })
-
-
-
             }
-
         }
     }
